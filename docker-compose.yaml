@@ -1,0 +1,14 @@
+version: '3'
+services:
+  gerrit:
+    image: gerritcodereview/gerrit:3.6.1-ubuntu20
+    environment:
+      - CANONICAL_WEB_URL=http://192.168.100.30:8080
+    volumes:
+       - gerrit-volume:/var/gerrit
+    ports:
+       - "29418:29418"
+       - "8080:8080"
+    restart: 'on-failure'
+volumes:
+  gerrit-volume:
